@@ -19,13 +19,14 @@ dbfile = File.expand_path("../config/database.yml", __FILE__)
 #  end
 #end
 
-group :production do
-  gem 'pg'
-end
+# group :production do
+#   gem 'pg'
+# end
 
 source 'https://rubygems.org'
-ruby "1.9.3"
+ruby '2.4.2'
 
+gem 'pg', '~> 0.21'
 gem 'thin'
 gem 'rails', '~> 3.0.10'
 gem 'require_relative'
@@ -39,20 +40,20 @@ gem 'addressable', '~> 2.1', :require => 'addressable/uri'
 gem 'mini_magick', '~> 1.3.3', :require => 'mini_magick'
 gem 'uuidtools', '~> 2.1.1'
 gem 'flickraw-cached'
-gem 'flickraw', '0.9.6'
 gem 'rubypants', '~> 0.2.0'
 gem 'rake', '~> 0.9.2'
 gem 'acts_as_list'
 gem 'acts_as_tree_rails3'
-gem 'recaptcha', :require => 'recaptcha/rails'
+# gem 'recaptcha', :require => 'recaptcha/rails', :branch => 'rails3'
+gem 'recaptcha'
 
 group :development, :test do
-  gem 'ruby-debug19'
+  gem 'byebug'
   gem 'factory_girl', '~> 2.2'
   gem 'webrat'
   gem 'rspec-rails', '~> 2.0'
   gem 'simplecov', :require => false
-  gem 'sqlite3', '1.3.6'
+#  gem 'sqlite3', '1.3.6'
   gem 'cucumber', '1.2.1'
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
