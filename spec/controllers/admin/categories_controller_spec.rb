@@ -15,7 +15,18 @@ describe Admin::CategoriesController do
     get :index
     assert_response :redirect, :action => 'index'
   end
+  
+  describe "test_create_destroy_category" do
 
+    it "shoud create new category" do
+      post :new, :category => {:name => "read", :keywords => "key"}
+      @category_select = Category.find_by_name("read")
+      expect(@category_select).not_to be_nil
+      test_id = @category_select.id
+      get :destroy, :id => test_id
+    end
+  end
+  
   describe "test_edit" do
     before(:each) do
       get :edit, :id => Factory(:category).id
